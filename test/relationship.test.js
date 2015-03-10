@@ -1,8 +1,9 @@
-var neo4j = require('..')('http://localhost:7474')
+var neo4j = require('..')()
 var Relationship = neo4j.Relationship
 var Node = neo4j.Node
 var assert = require('assert')
 var Promise = require('bluebird')
+var getObjectId = require('../lib/utils').getObjectId
 
 describe('Relationship', function () {
   before(function () {
@@ -20,7 +21,7 @@ describe('Relationship', function () {
       })
       .then(function (nodes) {
         var nodeIds = nodes.map(function (n) {
-          return n.data[0][0].metadata.id
+          return getObjectId(n.data[0][0])
         })
         self.n1 = nodeIds[0]
         self.n2 = nodeIds[1]
@@ -30,7 +31,7 @@ describe('Relationship', function () {
         return Relationship
           .create(self.n1, self.n2, 'before', {name: 'relationship'})
           .then(function (result) {
-            self.id = result.metadata.id
+            self.id = getObjectId(result)
           })
       })
   })

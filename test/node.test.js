@@ -1,6 +1,7 @@
-var neo4j = require('..')('http://localhost:7474')
+var neo4j = require('..')()
 var Node = neo4j.Node
 var assert = require('assert')
+var getObjectId = require('../lib/utils').getObjectId
 
 describe('Node', function () {
   before(function () {
@@ -10,7 +11,7 @@ describe('Node', function () {
     return neo4j
       .query(cypher, {node: node})
       .then(function (n) {
-        self.id = n.data[0][0].metadata.id
+        self.id = getObjectId(n.data[0][0])
       })
   })
 

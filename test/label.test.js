@@ -1,7 +1,8 @@
-var neo4j = require('..')('http://localhost:7474')
+var neo4j = require('..')()
 var Node = neo4j.Node
 var Label = neo4j.Label
 var assert = require('assert')
+var getObjectId = require('../lib/utils').getObjectId
 
 describe('Label', function () {
   before(function () {
@@ -10,7 +11,7 @@ describe('Label', function () {
     return Node
       .create({name: 'test-label', key: 'this is key'})
       .then(function (node) {
-        self.id = node.metadata.id
+        self.id = getObjectId(node)
       })
   })
 
