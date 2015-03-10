@@ -1,0 +1,35 @@
+{
+  "name": "neo4j-io",
+  "version": "1.0.0",
+  "description": "A Neo4j API wapper for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "test-cov": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
+    "test-travis": "node node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haio/neo4j-io"
+  },
+  "keywords": [
+    "neo4j",
+    "promise",
+    "cypher"
+  ],
+  "author": "haio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haio/neo4j-io/issues"
+  },
+  "homepage": "https://github.com/haio/neo4j-io",
+  "dependencies": {
+    "bluebird": "^2.6.0",
+    "debug": "^2.1.2",
+    "request-promise": "^0.3.2"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.7",
+    "mocha": "^2.1.0"
+  }
+}
