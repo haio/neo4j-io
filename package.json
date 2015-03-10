@@ -1,6 +1,6 @@
 {
   "name": "neo4j-io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Neo4j API wapper for Node.js",
   "main": "index.js",
   "scripts": {
