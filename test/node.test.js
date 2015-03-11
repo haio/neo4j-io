@@ -49,7 +49,9 @@ describe('Node', function () {
           return Node
             .get(id)
             .then(function (n) {
-              assert.deepEqual(Object.keys(n.data), ['is', 'age'])
+              assert.equal(Object.keys(n.data).length, 2)
+              assert(n.data.is)
+              assert(n.data.age)
             })
         })
     })

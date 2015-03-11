@@ -9,7 +9,6 @@ jdk:
   - oraclejdk7
 
 env:
-  - NEO4J_VERSION="2.2.0-RC01"
   - NEO4J_VERSION="2.1.7"
 
 before_install:
