@@ -18,7 +18,7 @@ Yet another io.js wrapper for Neo4j [REST API](http://neo4j.com/docs/stable/rest
 ```sh
 npm install neo4j-io --save
 
-var neo4j = require('neo4j')([url])
+var neo4j = require('neo4j-io')([url])
 ```
 
 ## API
@@ -31,13 +31,18 @@ neo4j
   .query(cypher)
   .then()
   .catch()
+
+// With params
+var cypher = 'MATCH (n:NODE) WHERE n.name={naem} RETURN n'
+var params = { name: 'neo4j' }
+neo4j.query(cypher, params)
 ```
 
 ### Node
 
 #### create(node)
 
-Create a node with json data
+Create a node with JSON data
 
 ```js
 neo4j.Node.create({ name: 'name' })
@@ -159,7 +164,7 @@ var batch = neo4j.batch()
 // Create a node
 var batchId = batch.Node.create({name: 'batch'})
 // Add a label to node, use id or batch Id
-batch.Label.create({batch: batchId})
+batch.Label.create({batch: batchId}, 'NODE')
 // Create a relationship
 batch.Relationship.create({batch: batchId}, 2, 'LIKE')
 // Call exec
@@ -172,7 +177,7 @@ var c2 = 'MATCH (n:NODE) WHERE n.name={name} RETURN n'
 
 batch.query(c1)
 batch.query(c2, {name: 'test'})
-batch.exec().then
+batch.exec().then()
 ```
 
 ### LICENSE

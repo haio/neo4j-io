@@ -1,7 +1,7 @@
 {
   "name": "neo4j-io",
   "version": "1.0.1",
-  "description": "A Neo4j API wapper for Node.js",
+  "description": "A Neo4j REST API wapper for io.js",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec",
