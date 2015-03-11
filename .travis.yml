@@ -1,8 +1,22 @@
 node_js:
-- "0.10"
-- "0.11"
+  - "0.10"
+  - "0.12"
+  - 'io.js'
+
 language: node_js
-services:
-    - neo4j
+
+jdk:
+  - oraclejdk7
+
+env:
+  - NEO4J_VERSION="2.2.0-RC01"
+  - NEO4J_VERSION="2.1.7"
+
+before_install:
+  - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
+  - tar -xzf neo4j-community-$NEO4J_VERSION-unix.tar.gz
+  - neo4j-community-$NEO4J_VERSION/bin/neo4j start
+
 script: "npm run-script test-travis"
+
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
