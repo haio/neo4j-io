@@ -11,7 +11,7 @@
 [coveralls-image]: https://img.shields.io/coveralls/haio/neo4j-io.svg?style=flat
 [coveralls-url]: https://coveralls.io/r/haio/neo4j-io?branch=master
 
-Yet another io.js wrapper for Neo4j [REST API](http://neo4j.com/docs/stable/rest-api.html), which provides Promise api.
+Yet another Neo4j [REST API](http://neo4j.com/docs/stable/rest-api.html) wrapper for io.js, which provides Promise api.
 
 ## Usage
 
@@ -33,7 +33,7 @@ neo4j
   .catch()
 
 // With params
-var cypher = 'MATCH (n:NODE) WHERE n.name={naem} RETURN n'
+var cypher = 'MATCH (n:NODE) WHERE n.name={name} RETURN n'
 var params = { name: 'neo4j' }
 neo4j.query(cypher, params)
 ```
@@ -180,6 +180,6 @@ batch.query(c2, {name: 'test'})
 batch.exec().then()
 ```
 
-### LICENSE
+## LICENSE
 
 MIT
