@@ -154,6 +154,24 @@ Get all the nodes with label
 
 Get all the labels
 
+### Index
+
+#### get(label)
+
+Get indexes for a label
+
+#### create(label, index)
+
+Create a index for a label
+
+```js
+neo4j.Index.create('label', 'index')
+```
+
+#### delete|drop(label, index)
+
+Drop index
+
 ### Batch
 
 All the api above are available in batch operation, `exec` must be called when you want
